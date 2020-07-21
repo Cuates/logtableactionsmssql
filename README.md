@@ -5,7 +5,7 @@ Microsoft SQL Server log all actions on each table record
 * 0.0.1
 
 **Important Note**
-* This function was written with SQL Server 2012 methods
+* This project was written with SQL Server 2012 methods
 
 ### Prerequisite Data Types
 * nvarchar
