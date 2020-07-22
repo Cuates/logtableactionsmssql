@@ -8,7 +8,6 @@
 * [Prerequisite Data Types](#prerequisite-data-types)
 * [Prerequisite Functions](#prerequisite-functions)
 * [Prerequisite Conditions](#prerequisite-conditions)
-* [Usage](#usage)
 
 ### Version
 * 0.0.1
