@@ -1,11 +1,24 @@
 # logtableactionsmssql
-Microsoft SQL Server log all actions on each table record
+> Microsoft SQL Server log all actions on each table record
 
-# Version
+## Table of Contents
+* [Version](#version)
+* [Important Note](#important-note)
+* [Prerequisite Database Tables](#prerequisite-database-tables)
+* [Prerequisite Data Types](#prerequisite-data-types)
+* [Prerequisite Functions](#prerequisite-functions)
+* [Prerequisite Conditions](#prerequisite-conditions)
+* [Usage](#usage)
+
+### Version
 * 0.0.1
 
-**Important Note**
+### **Important Note**
 * This project was written with SQL Server 2012 methods
+
+### Prerequisite Database Tables
+* inserted
+* deleted
 
 ### Prerequisite Data Types
 * nvarchar
@@ -14,12 +27,8 @@ Microsoft SQL Server log all actions on each table record
 * smallint
 * datetime2
 
-### Prerequisite Database Table
-* inserted
-* deleted
+### Prerequisite Functions
+* getdate
 
 ### Prerequisite Conditions
 * exists
-
-### Prerequisite Function
-* getdate
