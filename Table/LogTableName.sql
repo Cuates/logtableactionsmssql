@@ -18,18 +18,18 @@ go
 --     Purpose: Log table
 -- =========================
 create table [dbo].[LogTableName](
-  [ltnid] [bigint] identity (1, 1) not null,
-  [mtnid] [bigint] not null,
+  [ltnID] [bigint] identity (1, 1) not null,
+  [mtnID] [bigint] not null,
   [created_date] [datetime2](7) not null,
   [status] [smallint] not null,
   [modified_date] [datetime2](7) null,
-  [columnonename] [int] not null,
-  [columntwoname] [nvarchar](255) not null,
-  [userid] [int] not null,
-  [actiontype] [nvarchar](255) not null,
+  [columnOneName] [int] not null,
+  [columnTwoName] [nvarchar](255) not null,
+  [userID] [int] not null,
+  [actionType] [nvarchar](255) not null,
   constraint [pk_LogTableName] primary key clustered
   (
-    [ltnid] asc
+    [ltnID] asc
   )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
 ) on [primary]
 go
