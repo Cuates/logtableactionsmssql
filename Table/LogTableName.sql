@@ -27,7 +27,7 @@ create table [dbo].[LogTableName](
   [columnTwoName] [nvarchar](255) not null,
   [userID] [int] not null,
   [actionType] [nvarchar](255) not null,
-  constraint [pk_LogTableName] primary key clustered
+  constraint [PK_LogTableName] primary key clustered
   (
     [ltnID] asc
   )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
@@ -43,5 +43,5 @@ go
 alter table [dbo].[LogTableName] add  default (getdate()) for [modified_date]
 go
 
-alter table [dbo].[LogTableName] add  default ((1)) for [userid]
+alter table [dbo].[LogTableName] add  default ((1)) for [userID]
 go

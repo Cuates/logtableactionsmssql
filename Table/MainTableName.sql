@@ -25,7 +25,7 @@ create table [dbo].[MainTableName](
   [columnOneName] [int] not null,
   [columnTwoName] [nvarchar](255) not null,
   [userID] [int] not null,
-  constraint [pk_MainTableName] primary key clustered
+  constraint [PK_MainTableName] primary key clustered
   (
     [mtnID] asc
   )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
@@ -41,5 +41,5 @@ go
 alter table [dbo].[MainTableName] add  default (getdate()) for [modified_date]
 go
 
-alter table [dbo].[MainTableName] add  default ((1)) for [userid]
+alter table [dbo].[MainTableName] add  default ((1)) for [userID]
 go
