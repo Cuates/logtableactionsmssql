@@ -1,45 +1,47 @@
-USE [DatabaseName]
-GO
+use [DatabaseName]
+go
 
-SET ANSI_NULLS ON
-GO
+-- Set ansi nulls
+set ansi_nulls on
+go
 
-SET QUOTED_IDENTIFIER ON
-GO
+-- Set quoted identifier
+set quoted_identifier on
+go
 
 -- =========================
 --        File: LogTableName
 --     Created: 07/21/2020
---     Updated: 07/21/2020
+--     Updated: 07/29/2020
 --  Programmer: Cuates
 --   Update By: Cuates
 --     Purpose: Log table
 -- =========================
-CREATE TABLE [dbo].[LogTableName](
-  [ltnID] [bigint] identity (1, 1) not null,
-  [mtnID] [bigint] not null,
+create table [dbo].[LogTableName](
+  [ltnid] [bigint] identity (1, 1) not null,
+  [mtnid] [bigint] not null,
   [created_date] [datetime2](7) not null,
   [status] [smallint] not null,
   [modified_date] [datetime2](7) null,
-  [columnOneName] [int] not null,
-  [columnTwoName] [nvarchar](255) not null,
-  [userID] [int] not null,
-  [actionType] [nvarchar](255) not null,
- CONSTRAINT [PK_LogTableName] PRIMARY KEY CLUSTERED
-(
-  [ltnID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
-) ON [PRIMARY]
-GO
+  [columnonename] [int] not null,
+  [columntwoname] [nvarchar](255) not null,
+  [userid] [int] not null,
+  [actiontype] [nvarchar](255) not null,
+  constraint [pk_LogTableName] primary key clustered
+  (
+    [ltnid] asc
+  )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
+) on [primary]
+go
 
-ALTER TABLE [dbo].[LogTableName] ADD  DEFAULT (getdate()) FOR [created_date]
-GO
+alter table [dbo].[LogTableName] add  default (getdate()) for [created_date]
+go
 
-ALTER TABLE [dbo].[LogTableName] ADD  DEFAULT ((0)) FOR [status]
-GO
+alter table [dbo].[LogTableName] add  default ((0)) for [status]
+go
 
-ALTER TABLE [dbo].[LogTableName] ADD  DEFAULT (getdate()) FOR [modified_date]
-GO
+alter table [dbo].[LogTableName] add  default (getdate()) for [modified_date]
+go
 
-ALTER TABLE [dbo].[LogTableName] ADD  DEFAULT ((1)) FOR [userID]
-GO
+alter table [dbo].[LogTableName] add  default ((1)) for [userid]
+go
