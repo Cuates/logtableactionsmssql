@@ -18,9 +18,9 @@ GO
 CREATE TABLE [dbo].[LogTableName] (
     [ltnID] [bigint] IDENTITY(1,1) NOT NULL,
     [mtnID] [bigint] NOT NULL,
-    [created_date] [datetime2](7) NOT NULL CONSTRAINT [DF_LogTableName_created_date] DEFAULT (GETDATE()),
+    [created_date] [datetime2](7) NOT NULL CONSTRAINT [DF_LogTableName_created_date] DEFAULT (SYSDATETIME()),
     [status] [smallint] NOT NULL CONSTRAINT [DF_LogTableName_status] DEFAULT (0),
-    [modified_date] [datetime2](7) NULL CONSTRAINT [DF_LogTableName_modified_date] DEFAULT (GETDATE()),
+    [modified_date] [datetime2](7) NULL CONSTRAINT [DF_LogTableName_modified_date] DEFAULT (SYSDATETIME()),
     [columnOneName] [int] NOT NULL,
     [columnTwoName] [nvarchar](255) NOT NULL,
     [userID] [int] NOT NULL CONSTRAINT [DF_LogTableName_userID] DEFAULT (1),
@@ -28,6 +28,13 @@ CREATE TABLE [dbo].[LogTableName] (
     CONSTRAINT [PK_LogTableName] PRIMARY KEY CLUSTERED 
     (
         [ltnID] ASC
-    ) WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+    ) WITH (
+        PAD_INDEX = OFF,
+        STATISTICS_NORECOMPUTE = OFF,
+        IGNORE_DUP_KEY = OFF,
+        ALLOW_ROW_LOCKS = ON,
+        ALLOW_PAGE_LOCKS = ON,
+        FILLFACTOR = 90
+    ) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
