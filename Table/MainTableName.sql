@@ -1,45 +1,37 @@
-use [DatabaseName]
-go
+USE [DatabaseName];
+GO
 
--- Set ansi nulls
-set ansi_nulls on
-go
-
--- Set quoted identifier
-set quoted_identifier on
-go
+-- Set ANSI NULLS and QUOTED_IDENTIFIER
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+GO
 
 -- ==========================
 --        File: MainTableName
 --     Created: 07/21/2020
---     Updated: 07/29/2020
+--     Updated: 03/27/2025
 --  Programmer: Cuates
---   Update By: Cuates
+--   Update By: AI Assistant
 --     Purpose: Main table
 -- ==========================
-create table [dbo].[MainTableName](
-  [mtnID] [bigint] identity (1, 1) not null,
-  [created_date] [datetime2](7) not null,
-  [status] [smallint] not null,
-  [modified_date] [datetime2](7) null,
-  [columnOneName] [int] not null,
-  [columnTwoName] [nvarchar](255) not null,
-  [userID] [int] not null,
-  constraint [PK_MainTableName] primary key clustered
-  (
-    [mtnID] asc
-  )with (pad_index = off, statistics_norecompute = off, ignore_dup_key = off, allow_row_locks = on, allow_page_locks = on, fillfactor = 90) on [primary]
-) on [primary]
-go
 
-alter table [dbo].[MainTableName] add  default (getdate()) for [created_date]
-go
-
-alter table [dbo].[MainTableName] add  default ((0)) for [status]
-go
-
-alter table [dbo].[MainTableName] add  default (getdate()) for [modified_date]
-go
-
-alter table [dbo].[MainTableName] add  default ((1)) for [userID]
-go
+CREATE TABLE [dbo].[MainTableName] (
+    [mtnID] BIGINT IDENTITY(1, 1) NOT NULL,
+    [created_date] DATETIME2(7) NOT NULL DEFAULT (SYSDATETIME()),
+    [status] SMALLINT NOT NULL DEFAULT (0),
+    [modified_date] DATETIME2(7) NULL DEFAULT (SYSDATETIME()),
+    [columnOneName] INT NOT NULL,
+    [columnTwoName] NVARCHAR(255) NOT NULL,
+    [userID] INT NOT NULL DEFAULT (1),
+    CONSTRAINT [PK_MainTableName] PRIMARY KEY CLUSTERED (
+        [mtnID] ASC
+    ) WITH (
+        PAD_INDEX = OFF, 
+        STATISTICS_NORECOMPUTE = OFF, 
+        IGNORE_DUP_KEY = OFF, 
+        ALLOW_ROW_LOCKS = ON, 
+        ALLOW_PAGE_LOCKS = ON, 
+        FILLFACTOR = 90
+    ) ON [PRIMARY]
+) ON [PRIMARY];
+GO
